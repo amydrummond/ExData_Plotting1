@@ -19,6 +19,7 @@ power_use$weekday <- wday(power_use$newdate, label = TRUE)
 ## Turns out this is unnecessary, but I left it anyway.
 power_use$Global_active_power <- as.numeric(power_use$Global_active_power)
 power_use$datetime <- ymd_hms(paste(power_use$newdate, " ", power_use$Time))
+## Sometimes this datetime code says it can't parse. But running the same line again seems to get it to work. 
 png(file = "plot2.png", width = 480, height = 480, units = "px")
 plot(power_use$datetime, power_use$Global_active_power, type = "n", ylab = "Global Active Power (kilowatts)", xlab = '')
 lines(power_use$datetime, power_use$Global_active_power)
